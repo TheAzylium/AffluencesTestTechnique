@@ -1,0 +1,42 @@
+<div>
+  <img src="../assets/affluences-logo.png" alt="" class="logo" />
+</div>
+<div fxLayoutAlign="center">
+  <div fxLayout="column" fxLayoutGap="50px">
+    <h2 fxLayoutAlign="center" class="title">
+      Check if the resource is available
+    </h2>
+
+    <form [formGroup]="form" (submit)="submit()" fxLayout="column" fxLayoutGap="50px">
+      <div fxLayoutAlign="space-between center" fxLayoutGap="40px">
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            [readonly]="true"
+            formControlName="date"
+            [matDatepicker]="date"
+            (click)="date.open()"
+          />
+          <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+          <mat-datepicker #date></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Heures</mat-label>
+          <mat-select formControlName="hours">
+            <mat-option *ngFor="let hour of Hours" [value]="hour">
+              {{ hour }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="center">
+        <button mat-raised-button color="primary" type="submit">
+          Check availability
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

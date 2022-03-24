@@ -1,0 +1,67 @@
+{
+  "name": "clean-angular-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng serve",
+    "build:dev": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build",
+    "watch": "ng build --watch --configuration development",
+    "postinstall": "ngcc",
+    "prettier": "prettier --write \"**\"",
+    "prettier:check": "prettier --check \"**\"",
+    "commit": "git add . && node ./node_modules/gitmoji-cli/lib/cli -c && git pull && git push"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^13.2.5",
+    "@angular/cdk": "^13.2.5",
+    "@angular/common": "~13.2.5",
+    "@angular/compiler": "~13.2.5",
+    "@angular/core": "~13.2.5",
+    "@angular/flex-layout": "^13.0.0-beta.36",
+    "@angular/forms": "~13.2.5",
+    "@angular/material": "^13.2.5",
+    "@angular/platform-browser": "~13.2.5",
+    "@angular/platform-browser-dynamic": "~13.2.5",
+    "@angular/router": "~13.2.5",
+    "moment": "^2.29.1",
+    "ngx-mat-select-search": "^3.0.3",
+    "ngx-toastr": "^14.2.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.2.5",
+    "@angular/cli": "~13.2.5",
+    "@angular/compiler-cli": "~13.2.5",
+    "@typescript-eslint/eslint-plugin": "4.3.0",
+    "@typescript-eslint/parser": "4.3.0",
+    "@types/node": "^12.11.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jasmine": "^4.1.1",
+    "eslint-plugin-jsdoc": "31.0.3",
+    "eslint-plugin-prefer-arrow": "1.2.2",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-security": "^1.4.0",
+    "gitmoji-cli": "^4.7.0",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "prettier": "^2.4.1",
+    "prettier-plugin-organize-imports": "^2.3.4",
+    "pretty-quick": "^3.1.1",
+    "typescript": "~4.5.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "*.html": "eslint --fix",
+    "*.spec.ts": "eslint --fix"
+  }
+}
